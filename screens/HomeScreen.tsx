@@ -31,21 +31,22 @@ const HomeScreen = () => {
           query={{ key: GOOGLE_MAPS_APIKEY, language: "ja" }}
           onPress={(data, details = null) => {
             // // 'details' is provided when fetchDetails = true
-
+            // console.log(details?.geometry?.location)
+            // console.log("location------------------", location)
             setGeoLocation({
               //@ts-ignore
-              location: details?.geometry.location,
-              description: data.description
+              location: details?.geometry?.location,
+              description: data?.description
             })
 
-            console.log("location------------------", location)
+            console.log(geoLocation)
+
             //   dispatch(
             //     setOrigin({
             //       location: details?.geometry.location,
             //       description: data.description
             //     })
             //   )
-
             // // dispatch(setDestination(null))
           }}
           fetchDetails={true}
