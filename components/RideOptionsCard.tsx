@@ -6,7 +6,7 @@ import tw from "tailwind-react-native-classnames"
 const RideOptionsCard = () => {
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
-      <Text style={tw`text-center py-5 text-xl`}>2枚目</Text>
+      <Text style={tw`text-center py-5 text-xl`}>２枚目２歩手前</Text>
     </SafeAreaView>
   )
 }

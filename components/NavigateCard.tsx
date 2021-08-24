@@ -1,5 +1,5 @@
-import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import React, { useEffect, useState } from "react"
+import { StyleSheet, Text, View, Keyboard } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import tw from "tailwind-react-native-classnames"
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete"
@@ -8,15 +8,16 @@ import { GOOGLE_MAPS_APIKEY } from "@env"
 import { useNavigation } from "@react-navigation/native"
 import { useRecoilState } from "recoil"
 import { destinationState } from "../providers/destinationState"
+import NavFavorites from "./NavFavorites"
 
 const NavigateCard = () => {
   const navigation: any = useNavigation()
   const [destination, setDestination] = useRecoilState<any>(destinationState)
 
   return (
-    <SafeAreaView style={tw`bg-white flex-1`}>
+    <SafeAreaView style={tw`bg-white`}>
       {/* <Text style={tw`text-center text-xl`}>1枚目</Text> */}
-      <View style={tw`border-t border-gray-200 flex-shrink`}>
+      <View>
         <GooglePlacesAutocomplete
           styles={styles}
           placeholder="Where to?"
@@ -27,7 +28,6 @@ const NavigateCard = () => {
               location: details?.geometry.location,
               description: data.description
             })
-            // // console.log(data, details)
             navigation.navigate("RideOptionsCard")
           }}
           fetchDetails={true}
@@ -35,6 +35,7 @@ const NavigateCard = () => {
           query={{ key: GOOGLE_MAPS_APIKEY, language: "ja" }}
         />
       </View>
+      <NavFavorites />
     </SafeAreaView>
   )
 }

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectOrigin, setDestination, setOrigin } from "../slices/navSlice"
 import { useRecoilState } from "recoil"
 import { geoLocationState } from "../providers/geoLocationState"
+import NavFavorites from "../components/NavFavorites"
 
 const HomeScreen = () => {
   const dispatch = useDispatch()
@@ -57,6 +58,7 @@ const HomeScreen = () => {
           }}
         />
         <NavOptions />
+        <NavFavorites />
       </View>
     </SafeAreaView>
   )

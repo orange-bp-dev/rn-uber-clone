@@ -52,8 +52,8 @@ const Map = () => {
       }}
     >
       {geoLocation && destination && <MapViewDirections origin={geoLocation.description} destination={destination.description} apikey={GOOGLE_MAPS_APIKEY} strokeColor="black" strokeWidth={3} />}
-      {geoLocation?.location && <Marker coordinate={{ latitude: geoLocation.location.lat, longitude: geoLocation.location.lng }} title="Origin" description={geoLocation.description} identifier="origin" />}
-      {destination?.location && <Marker coordinate={{ latitude: destination.location.lat, longitude: destination.location.lng }} title="Destination" description={destination.description} identifier="destination" />}
+      {geoLocation?.location && <Marker coordinate={{ latitude: geoLocation.location.lat, longitude: geoLocation.location.lng }} title="出発地" description={geoLocation.description} identifier="origin" />}
+      {destination?.location && <Marker coordinate={{ latitude: destination.location.lat, longitude: destination.location.lng }} title="目的地" description={destination.description} identifier="destination" />}
     </MapView>
   )
 }
