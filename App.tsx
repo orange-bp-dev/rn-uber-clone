@@ -15,18 +15,18 @@ export default function App() {
 
   return (
     <RecoilRoot>
-      <Provider store={store}>
-        <NavigationContainer>
-          <SafeAreaProvider>
-            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1 }}>
-              <Stack.Navigator>
-                <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
-                <Stack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false }} />
-              </Stack.Navigator>
-            </KeyboardAvoidingView>
-          </SafeAreaProvider>
-        </NavigationContainer>
-      </Provider>
+      {/* <Provider store={store}> */}
+      <NavigationContainer>
+        <SafeAreaProvider>
+          <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1 }}>
+            <Stack.Navigator>
+              <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+              <Stack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false }} />
+            </Stack.Navigator>
+          </KeyboardAvoidingView>
+        </SafeAreaProvider>
+      </NavigationContainer>
+      {/* </Provider> */}
     </RecoilRoot>
   )
 }

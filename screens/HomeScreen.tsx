@@ -6,14 +6,14 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 //@ts-ignore
 import { GOOGLE_MAPS_APIKEY } from "@env"
 import { useDispatch, useSelector } from "react-redux"
-import { selectOrigin, setDestination, setOrigin } from "../slices/navSlice"
+// import { selectOrigin, setDestination, setOrigin } from "../slices/navSlice"
 import { useRecoilState } from "recoil"
 import { geoLocationState } from "../providers/geoLocationState"
 import NavFavorites from "../components/NavFavorites"
 
 const HomeScreen = () => {
-  const dispatch = useDispatch()
-  const origin = useSelector(selectOrigin)
+  // const dispatch = useDispatch()
+  // const origin = useSelector(selectOrigin)
   const [geoLocation, setGeoLocation] = useRecoilState(geoLocationState)
 
   // useEffect(() => {
