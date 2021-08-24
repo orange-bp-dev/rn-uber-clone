@@ -10,8 +10,6 @@ import { selectOrigin, setDestination, setOrigin } from "../slices/navSlice"
 import { useRecoilState } from "recoil"
 import { geoLocationState } from "../providers/geoLocationState"
 
-console.log("key------------------", GOOGLE_MAPS_APIKEY)
-
 const HomeScreen = () => {
   const dispatch = useDispatch()
   const origin = useSelector(selectOrigin)
@@ -32,14 +30,13 @@ const HomeScreen = () => {
           onPress={(data, details = null) => {
             // // 'details' is provided when fetchDetails = true
             // console.log(details?.geometry?.location)
-            // console.log("location------------------", location)
             setGeoLocation({
               //@ts-ignore
               location: details?.geometry?.location,
               description: data?.description
             })
 
-            console.log(geoLocation)
+            // console.log(geoLocation)
 
             //   dispatch(
             //     setOrigin({

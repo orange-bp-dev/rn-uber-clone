@@ -1,12 +1,15 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import tw from "tailwind-react-native-classnames"
-import MapView from "react-native-maps"
+import MapView, { Marker } from "react-native-maps"
 import { useSelector } from "react-redux"
 import { selectOrigin } from "../slices/navSlice"
 import { RecoilState, useRecoilState } from "recoil"
 import { geoLocationState } from "../providers/geoLocationState"
-import internal from "stream"
+import { destinationState } from "../providers/destinationState"
+import MapViewDirections from "react-native-maps-directions"
+//@ts-ignore
+import { GOOGLE_MAPS_APIKEY } from "@env"
 
 const Map = () => {
   const origin = useSelector(selectOrigin)
@@ -17,6 +20,10 @@ const Map = () => {
   }
 
   const [geoLocation, setGeoLocation] = useRecoilState<any>(geoLocationState)
+  const [destination, setDestination] = useRecoilState<any>(destinationState)
+  //出力できる
+  console.log("geoLocation =====", geoLocation)
+  console.log("destination =====", destination)
   // console.log("========================MapView コンポーネント", geoLocation?.location?.lat)
   return (
     <MapView
@@ -32,7 +39,10 @@ const Map = () => {
         latitudeDelta: 0.005,
         longitudeDelta: 0.005
       }}
-    />
+    >
+      {geoLocation && destination && <MapViewDirections origin={geoLocation.description} destination={destination.description} apikey={GOOGLE_MAPS_APIKEY} strokeColor="black" strokeWidth={3} />}
+      {geoLocation?.location && <Marker coordinate={{ latitude: geoLocation.location.lat, longitude: geoLocation.location.lng }} title="Origin" description={geoLocation.description} identifier="origin" />}
+    </MapView>
   )
 }
 

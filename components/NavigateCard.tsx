@@ -23,7 +23,6 @@ const NavigateCard = () => {
           nearbyPlacesAPI="GooglePlacesSearch"
           onPress={(data, details = null) => {
             //location & description
-            console.log("-----------------", details)
             setDestination({
               location: details?.geometry.location,
               description: data.description
